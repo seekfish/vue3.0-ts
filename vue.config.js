@@ -5,6 +5,10 @@ function resolve (dir) {
 }
 const target = require('./baseUrl.ts')
 console.log('接口地址：', target.baseUrl)
+const express = require('express')
+const app = express()
+const apiRoutes = express.Router()
+app.use('/api', apiRoutes)
 module.exports = {
     // 基本路径
     baseUrl: '/',
@@ -46,6 +50,7 @@ module.exports = {
             .set('@', resolve('src'))
             .set('assets',resolve('src/assets'))
             .set('components',resolve('src/components'))
+            .set('views',resolve('src/views'))
 
     },
     // css相关配置
@@ -67,6 +72,7 @@ module.exports = {
         hotOnly: false,
         proxy: {
             '/': {
+                ws: false,
                 // 目标 API 地址
                 target: target.baseUrl,
                 // 如果要代理 websockets

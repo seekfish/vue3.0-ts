@@ -9,6 +9,7 @@
     ]
   },
   "rules": {
+    "await-promise": true,
     "quotemark": [true, "single"],
     "interface-name": false,
     "ordered-imports": false,
@@ -22,7 +23,9 @@
       "check-separator",
       "check-type"
     ],
+    "import-blacklist":true, 
     "no-var-keyword": true,
+    "no-var-requires": false,
     "indent":[true, "spaces", 2],
     "semicolon":[true, "never", "ignore-interfaces"],
     "trailing-comma": [true, { 
